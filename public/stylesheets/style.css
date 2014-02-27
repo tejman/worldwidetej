@@ -12,6 +12,9 @@
 .jumbotron .container {
   max-width: 100%;
 }
+.jumbotron .link-icon {
+  font-size: 25px;
+}
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
@@ -30,4 +33,20 @@
   .jumbotron .h1 {
     font-size: 63px;
   }
+}
+.link-icon {
+  font-size: 16px;
+}
+.center-content {
+  text-align: center;
+}
+blockquote.main-quote {
+  border: none;
+}
+.icon-links li {
+  float: none;
+  display: inline-block;
+}
+.top-bar {
+  overflow: hidden;
 }

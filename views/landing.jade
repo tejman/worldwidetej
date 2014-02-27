@@ -3,16 +3,21 @@ extends layout
 block content
 
   #jumbotron.jumbotron
-    .container
-      blockquote.main-quote
-        p Strive not to be a success, but rather to be of value.
-        footer
-          cite Albert Einstein
-      .icon-links
-        ul.list-inline
+    .row
+      .medium-10.columns.medium-centered
+        blockquote.main-quote.center-content
+          p Strive not to be a success, but rather to be of value.
+          footer
+            cite Albert Einstein
+    .row
+      .medium-6.columns.medium-centered.icon-links
+        ul.inline-list.icon-links.center-content
           li
-            a(href="#") Twitter
+            a(href="https://twitter.com/tejman") 
+              i.fi-social-twitter.link-icon
           li
-            a(href="#") Email
+            a(href="mailto:rudrarajut@gmail.com")
+              i.fi-mail.link-icon
           li
-            a(href="#") LinkedIn
+            a(href="http://www.linkedin.com/pub/teja-rudraraju/22/40/7b7")
+              i.fi-social-linkedin.link-icon
