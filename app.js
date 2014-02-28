@@ -7,6 +7,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var frontControl = require("./controls/frontControl.js")
+var phantomControl = require("./controls/phantomControl.js")
 
 var app = express();
 
@@ -29,7 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get("/", frontControl.landing);
-app.get("/loadImages", frontControl.getImageUrl)
+app.get("/loadImages", phantomControl.getDataUrl)
 
 
 http.createServer(app).listen(app.get('port'), function(){
