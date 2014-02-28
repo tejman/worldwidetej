@@ -7,11 +7,10 @@ frontControl = module.exports = {
     return false
 
   getImageUrl: (req, res)->
-    ()->
-      data = exec "phantomjs test.js", (error, stdout, stderr)->
-        return stdout
-      console.log data
-      return data
+    exec "phantomjs test.js url", (error, stdout, stderr)->
+      console.log(error, stderr)
+      console.log "END ERROR PRINT"
+      res.send stdout
     # res.send data
 
 

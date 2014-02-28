@@ -1,12 +1,11 @@
-
+// console.log(process.argv);
+console.log("test");
+throw new Error(process.argv);
 
 var page = require("webpage").create();
-page.open("http://github.com", function(){
+page.open("http://google.com", function(){
   var dataURL = page.renderBase64("PNG");
-  setTimeout(function() {
-    console.log(dataURL);
-    phantom.exit();
-  }, 1000);
+  phantom.exit();
   return dataURL
 });
 

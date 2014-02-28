@@ -10,14 +10,11 @@
       return false;
     },
     getImageUrl: function(req, res) {
-      return function() {
-        var data;
-        data = exec("phantomjs test.js", function(error, stdout, stderr) {
-          return stdout;
-        });
-        console.log(data);
-        return data;
-      };
+      return exec("phantomjs test.js url", function(error, stdout, stderr) {
+        console.log(error, stderr);
+        console.log("END ERROR PRINT");
+        return res.send(stdout);
+      });
     }
   };
 
