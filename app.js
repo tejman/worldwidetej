@@ -29,6 +29,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get("/", frontControl.landing);
+app.get("/loadImages", frontControl.getImageUrl)
 
 
 http.createServer(app).listen(app.get('port'), function(){
