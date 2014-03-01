@@ -10,6 +10,6 @@
     "jade": "*",
     "stylus": "*",
     "phantomjs": "~1.9.7-1",
-    "mongoose": "^3.8.8"
+    "mongoose": "~3.8.8"
   }
 }

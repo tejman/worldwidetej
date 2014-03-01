@@ -8,10 +8,11 @@ var http = require('http');
 var path = require('path');
 var frontControl = require("./controls/frontControl.js")
 var phantomControl = require("./controls/phantomControl.js")
+var mongoose = require("mongoose");
 
 var app = express();
 
-// all environments
+// all environmentsw
 app.set('port', process.env.PORT || 3010);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -23,6 +24,7 @@ app.use(express.methodOverride());
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+mongoose.connect("mongodb://localhost/wwt");
 
 // development only
 if ('development' == app.get('env')) {

@@ -10,15 +10,26 @@ $(function(){
   });
 
   var linkImages = $(".dataURL");
-  var linkUrls = linkImages.map(function(item){
-    $(item).closest("a").attr("href");
+
+  var linkUrls = linkImages.map(function(ind, item){
+    console.log(ind, item);
+    console.log($(item).closest("a").attr("href"));
+    return $(item).closest("a").attr("href");
   });
 
-  // $.get("/loagImages", {urls: linkUrls}, function(data){
-  //   for (var i = 0; i < linkImages.length; i++) {
-  //     $(linkImages[i]).attr("src", data[i].toString())
-  //   };
-  // });
+  serialLinkUrls = JSON.stringify(linkUrls.toArray());
+
+  $.get("/loadImages", {urls: serialLinkUrls}, function(data){
+    console.log(data);
+    for (var i = 0; i < linkImages.length; i++) {
+      var url64 = data[i]?"data:image/png;base64,"+data[i].toString():"http://placehold.it/150x150";
+      $(linkImages[i]).attr({
+        alt: "Embedded Image",
+        src: url64
+      });
+    };
+
+  });
 
 });
 

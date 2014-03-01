@@ -55,3 +55,8 @@ blockquote.main-quote {
   padding-top: 15px;
 text-transform
 }
+.th {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
