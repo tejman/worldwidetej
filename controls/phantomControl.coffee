@@ -14,28 +14,36 @@ module.exports = {
     dataUrlArray = []
 
     runPhantom = (i, url)->
-      console.log("find in db: ", url, "result: ",pageImageModel.findOne({pageUrl: url}));
-      if pageImageModel.findOne({pageUrl: url}) is not null
-        console.log("found item in db: ", pageImageModel.findOne({pageUrl: url}))
-        dataUrlArray[i] = pageImageModel.find({pageUrl: url})
-        count++
-        if count is urlArray.length
-          res.send dataUrlArray
+      
+      pageImageModel.findOne {pageUrl: url}, (err, result)->
+        if err
+          console.log err
+          dataUrlArray[i] = "http://placehold.it/150x150"
+          count++
+          if count is urlArray.length
+            res.send dataUrlArray
+            return false
 
-      childArgs = [path.join(__dirname, "test.js"),url]
+        else if result
+          console.log("found item in db: ", result.pageUrl)
+          dataUrlArray[i] = result.dataUrl
+          count++
+          if count is urlArray.length
+            res.send dataUrlArray
+            return false
 
-      childProcess.execFile binPath, childArgs, (err, stdout, stderr)->
-        # console.log "Print from Control: ", stdout
-        console.log("child process spawn")
-        count++
-        dataUrlArray[i]=(stdout)
-        console.log("before save", stdout.slice(0,50))
-        newDoc = new pageImageModel({pageUrl: url, dataUrl: stdout})
-        console.log("mongo doc:   ",newDoc)
-        newDoc.save();
-        console.log "Start of print ---------------",i, dataUrlArray
-        if count is urlArray.length
-          res.send dataUrlArray
+        else if not result
+          console.log "Phantom trigger"
+          childArgs = [path.join(__dirname, "test.js"),url]
+
+          childProcess.execFile binPath, childArgs, (err, stdout, stderr)->
+            count++
+            dataUrlArray[i]=(stdout)
+            newDoc = new pageImageModel({pageUrl: url, dataUrl: stdout})
+            newDoc.save();
+            if count is urlArray.length
+              res.send dataUrlArray
+            return false
         return false
 
     for url in urlArray
