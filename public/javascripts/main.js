@@ -1,14 +1,65 @@
 
 
 $(function(){
+//////Function Definitions
+
+  var isScrolledIntoView = function (elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
+
+  var setJumbotron = function(elem){
+    $(".top-bar").hide();
+    $(elem).css({
+      height: ($(window).height()).toString()+"px",
+      paddingTop: "20%",
+      marginTop: (-$(".top-bar").outerHeight())+"px"
+    });
+  }
+
+  var toggleMenu = function() {
+    if ($(window).scrollTop() > $(window).height() - 50) {
+      console.log("navbar trigger");
+      $(".top-bar").slideDown("slow");
+      // $(".jumbotron").hide();
+    }
+    else {
+      $(".top-bar").hide();
+      // $(".jumbotron").show();
+    }
+  }
+
+  var scrollDown = function () {
+    $("html, body").animate({ scrollTop: $(window).height() - 49 });
+  }
+
+////////End Functions
+
+
+
+/////MAIN CODE
+
   $(document).foundation();
 
+  setJumbotron(".jumbotron");
 
-  $(".jumbotron").css({
-    height: ($(window).height()).toString()+"px",
-    paddingTop: (($(window).height()/5)).toString()+"px"
+  $(document).on("scroll", function(e){
+    toggleMenu();
   });
 
+  $(document).on("click", "#jumbotron-scroll", function(){
+    scrollDown();
+    toggleMenu();
+  });
+
+
+  //////Crawl for webpage links and grab the screenshot
   var linkImages = $(".dataURL");
 
   var linkUrls = linkImages.map(function(ind, item){
@@ -30,6 +81,9 @@ $(function(){
     };
 
   });
+  /////End crawl for screenshots
+
+
 
 });
 

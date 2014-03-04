@@ -34,7 +34,7 @@ module.exports = {
 
         else if not result
           console.log "Phantom trigger"
-          childArgs = [path.join(__dirname, "test.js"),url]
+          childArgs = [path.join(__dirname, "screenshot.js"),url]
 
           childProcess.execFile binPath, childArgs, (err, stdout, stderr)->
             count++
