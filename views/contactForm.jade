@@ -1,1 +1,28 @@
-p HERE IS A FORM
+
+form#contact-form
+  .row
+    .small-9.columns
+      input(type="text", name="from", placeholder="Your E-Mail")
+  .row
+    .small-9.columns
+      input(type="text", name="subject", placeholder="Subject")
+  .row
+    .small-9.columns
+      textarea(name="message", placeholder="Say what you have to say...")
+  .row
+    .small-9.columns
+      label Who are you?
+      input#developer(type="checkbox")
+      label(for="developer") Developer
+
+      input#employer(type="checkbox")
+      label(for="employer") Employer
+
+      input#client(type="checkbox")
+      label(for="client") Client
+
+      input#friend(type="checkbox")
+      label(for="friend") Friend/Admirer
+  .row
+    .small-9.columns
+      input.button.radius.success.small(type="submit")

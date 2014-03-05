@@ -120,12 +120,12 @@ blockquote.main-quote {
 }
 #jumbotron-scroll {
   font-size: 20px;
-  padding: 2px 9px;
+  padding: 2px 9px 0px;
   background-color: rgba(0,0,0,0);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border: 2px solid rgba(255,255,255,0.6);
-  color: rgba(255,255,255,0.6);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.4);
   border-bottom: none;
   position: absolute;
   bottom: 0px;

@@ -39,7 +39,7 @@ $(function(){
   }
 
   var scrollDown = function () {
-    $("html, body").animate({ scrollTop: $(window).height() - 49 });
+    $("html, body").animate({ scrollTop: $(window).height() - 49 }, 1500);
   }
 
 
