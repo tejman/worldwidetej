@@ -4,7 +4,7 @@
 
   frontControl = module.exports = {
     landing: function(req, res) {
-      res.render("homeContent");
+      res.render("landing");
       return false;
     }
   };

@@ -21,6 +21,9 @@ $(function(){
       paddingTop: "20%",
       marginTop: (-$(".top-bar").outerHeight())+"px"
     });
+    $("#jumbotron-scroll").css({
+      right: (($(window).width()/2)-(parseInt($("#jumbotron-scroll").css("width"))/2)).toString()+"px"
+    });
   }
 
   var toggleMenu = function() {
@@ -39,6 +42,7 @@ $(function(){
     $("html, body").animate({ scrollTop: $(window).height() - 49 });
   }
 
+
 ////////End Functions
 
 
@@ -47,6 +51,7 @@ $(function(){
 
   $(document).foundation();
 
+  $(".jumbotron").backstretch("/images/mountain.jpg");
   setJumbotron(".jumbotron");
 
   $(document).on("scroll", function(e){
@@ -57,6 +62,12 @@ $(function(){
     scrollDown();
     toggleMenu();
   });
+
+  // $(".icon-links .link-icon").hover(function(){
+  //   console.log(this);
+  //   $(this).css("color", "#000");
+  //   $(this).animate({color: "#FFF"}, 100, function(){return false});
+  // });
 
 
   //////Crawl for webpage links and grab the screenshot
@@ -71,7 +82,6 @@ $(function(){
   serialLinkUrls = JSON.stringify(linkUrls.toArray());
 
   $.get("/loadImages", {urls: serialLinkUrls}, function(data){
-    console.log(data);
     for (var i = 0; i < linkImages.length; i++) {
       var url64 = data[i]?"data:image/png;base64,"+data[i].toString():"http://placehold.it/150x150";
       $(linkImages[i]).attr({

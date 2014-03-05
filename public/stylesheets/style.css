@@ -3,16 +3,30 @@
 *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 .jumbotron {
   padding: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   color: inherit;
-  background-image: url("/images/ocean.png");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-color: #ccc;
   z-index: -1;
+}
+.jumbotron cite,
+.jumbotron p,
+.jumbotron a {
+  color: #000;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+}
+.jumbotron a {
+  color: #000;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
 }
 .jumbotron p {
   margin-bottom: 15px;
@@ -26,13 +40,42 @@
   font-size: 25px;
   padding: 2px 7px;
   border: 3px solid;
+  -webkit-border-radius: 30px;
   border-radius: 30px;
+}
+.jumbotron li a {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.jumbotron li:hover a {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  color: #fff;
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+}
+.jumbotron li:hover .link-icon {
+  background-color: rgba(0,0,0,0.1);
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.jumbotron .row {
+  margin-bottom: 30px;
 }
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
 }
 .container .jumbotron {
+  -webkit-border-radius: 6px;
   border-radius: 6px;
   padding-right: 60px;
   padding-left: 60px;
@@ -55,6 +98,7 @@
 }
 blockquote.main-quote {
   border: none;
+  font-family: 'Permanent Marker', cursive;
 }
 .icon-links li {
   float: none;
@@ -68,7 +112,6 @@ blockquote.main-quote {
 }
 .thumbnail h3 {
   padding-top: 15px;
-text-transform
 }
 .th {
   width: 150px;
@@ -77,11 +120,19 @@ text-transform
 }
 #jumbotron-scroll {
   font-size: 20px;
-  padding: 3px 9px;
-  border-radius: 30px;
+  padding: 2px 9px;
+  background-color: rgba(0,0,0,0);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 2px solid rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.6);
+  border-bottom: none;
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   right: 20px;
-  border: 2px solid;
   margin: 0 auto;
+}
+#jumbotron-scroll:hover {
+  background-color: #fff;
+  color: rgba(0,0,0,0.7);
 }

@@ -1,3 +1,5 @@
+@import "nib"
+
 *, *:before, *:after
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
@@ -5,13 +7,16 @@
 
 .jumbotron
   padding 30px
-  margin-bottom 30px
+  margin-bottom 50px
   color inherit
-  // background-color #ccc
-  background-image url("/images/ocean.png")
-  background-repeat no-repeat
-  background-size auto 100%
+  background-color #ccc
   z-index -1
+  cite, p, a
+    color #000
+    opacity .4
+  a
+    color #000
+    opacity .4
   p
     margin-bottom 15px
     font-size 21px
@@ -19,10 +24,24 @@
   .container
     max-width 100%
   .link-icon
-    font-size: 25px
+    font-size 25px
     padding 2px 7px
     border 3px solid
     border-radius 30px
+    // color inherit
+  li a
+    transition all .5s
+  li:hover
+    a
+      opacity 1
+      color #FFF
+      transform rotateY(360deg)
+      // background-color #FFF
+    .link-icon
+      background-color rgba(0,0,0,.1)
+      opacity 1
+  .row
+    margin-bottom 30px
 
 .jumbotron h1,
 .jumbotron .h1
@@ -52,6 +71,7 @@
 
 blockquote.main-quote
   border none
+  font-family 'Permanent Marker', cursive
 
 .icon-links 
   li
@@ -67,7 +87,6 @@ blockquote.main-quote
 .thumbnail
   h3
     padding-top 15px
-    text-transform
 
 .th
   width 150px
@@ -76,12 +95,21 @@ blockquote.main-quote
 
 #jumbotron-scroll
   font-size 20px
-  padding 3px 9px
-  border-radius 30px
+  padding 2px 9px
+  background-color rgba(0,0,0,.0)
+  border-top-left-radius 5px
+  border-top-right-radius 5px
+  border 2px solid rgba(255,255,255,.6)
+  color rgba(255,255,255,.6)
+  border-bottom none
   position absolute
-  bottom 20px
+  bottom 0px
   right 20px
-  border 2px solid
   margin 0 auto
+
+#jumbotron-scroll:hover
+  background-color #FFF
+  color rgba(0,0,0,.7)
+  
 
 
