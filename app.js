@@ -11,6 +11,7 @@ var phantomControl = require("./controls/phantomControl.js")
 var mongoose = require("mongoose");
 var stylus = require("stylus");
 var nib = require("nib");
+var sendgrid = require("sendgrid")
 
 var app = express();
 
