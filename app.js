@@ -6,12 +6,14 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var frontControl = require("./controls/frontControl.js")
-var phantomControl = require("./controls/phantomControl.js")
 var mongoose = require("mongoose");
 var stylus = require("stylus");
 var nib = require("nib");
 var sendgrid = require("sendgrid")
+
+var frontControl = require("./controls/frontControl.js");
+var phantomControl = require("./controls/phantomControl.js");
+var contactControl = require("./controls/contactControl.js");
 
 var app = express();
 
@@ -50,6 +52,7 @@ if ('development' == app.get('env')) {
 
 app.get("/", frontControl.landing);
 app.get("/loadImages", phantomControl.getDataUrl)
+app.get("/contactForm/submit", contactControl.validate)
 
 
 http.createServer(app).listen(app.get('port'), function(){

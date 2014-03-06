@@ -136,3 +136,6 @@ blockquote.main-quote {
   background-color: #fff;
   color: rgba(0,0,0,0.7);
 }
+#contact-form textarea {
+  height: 8em;
+}

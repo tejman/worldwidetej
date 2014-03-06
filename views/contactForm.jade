@@ -1,28 +1,38 @@
 
-form#contact-form
-  .row
-    .small-9.columns
-      input(type="text", name="from", placeholder="Your E-Mail")
-  .row
-    .small-9.columns
-      input(type="text", name="subject", placeholder="Subject")
-  .row
-    .small-9.columns
-      textarea(name="message", placeholder="Say what you have to say...")
-  .row
-    .small-9.columns
-      label Who are you?
-      input#developer(type="checkbox")
-      label(for="developer") Developer
+.row
+  .small-10.columns.small-centered
+    form#contact-form(data-abide, action="/contactForm/submit")
+      .row
+        .small-9.columns.small-centered
+          input(type="text", name="name", placeholder="Your Name", required, pattern="alpha")
+          small.error You need to enter your name
+      .row
+        .small-9.columns.small-centered
+          input(type="text", name="from", placeholder="Your E-Mail", required, pattern="email")
+          small.error Please enter a valid email address (e.g. john@jacob.jingleheimer)
+      .row
+        .small-9.columns.small-centered
+          input(type="text", name="subject", placeholder="Subject")
+      .row
+        .small-9.columns.small-centered
+          textarea(type="text", name="message", placeholder="Say what you have to say...", required)
+          small.error I appreciate brevity but you have to write something
+      .row
+        .small-8.columns.small-centered
+          fieldset.center-content
+            legend Who are you?
+            
+            input#developer(type="checkbox")
+            label(for="developer") Developer
 
-      input#employer(type="checkbox")
-      label(for="employer") Employer
+            input#employer(type="checkbox")
+            label(for="employer") Employer
 
-      input#client(type="checkbox")
-      label(for="client") Client
+            input#client(type="checkbox")
+            label(for="client") Client
 
-      input#friend(type="checkbox")
-      label(for="friend") Friend/Admirer
-  .row
-    .small-9.columns
-      input.button.radius.success.small(type="submit")
+            input#friend(type="checkbox")
+            label(for="friend") Friend/Admirer
+      .row
+        .small-3.columns.small-offset-8.center-content
+          input.button.radius.success.small(type="submit")
