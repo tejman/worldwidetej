@@ -1,7 +1,10 @@
 
-.row
+.row#contact-form
+  span.section-label Contact
+
+  h2 Send me a message!
   .small-10.columns.small-centered
-    form#contact-form(data-abide, action="/contactForm/submit")
+    form(data-abide, action="/contactForm/submit")
       .row
         .small-9.columns.small-centered
           input(type="text", name="name", placeholder="Your Name", required, pattern="alpha")
@@ -15,23 +18,23 @@
           input(type="text", name="subject", placeholder="Subject")
       .row
         .small-9.columns.small-centered
-          textarea(type="text", name="message", placeholder="Say what you have to say...", required)
+          textarea(type="text", name="text", placeholder="Say what you have to say...", required)
           small.error I appreciate brevity but you have to write something
       .row
         .small-8.columns.small-centered
           fieldset.center-content
             legend Who are you?
             
-            input#developer(type="checkbox")
+            input#developer(type="checkbox", name="who", value="DEV")
             label(for="developer") Developer
 
-            input#employer(type="checkbox")
+            input#employer(type="checkbox", name="who", value="EMP")
             label(for="employer") Employer
 
-            input#client(type="checkbox")
+            input#client(type="checkbox", name="who", value="CLIENT")
             label(for="client") Client
 
-            input#friend(type="checkbox")
+            input#friend(type="checkbox", name="who", value="FRIEND")
             label(for="friend") Friend/Admirer
       .row
         .small-3.columns.small-offset-8.center-content

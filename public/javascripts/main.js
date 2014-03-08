@@ -38,8 +38,10 @@ $(function(){
     }
   }
 
-  var scrollDown = function () {
-    $("html, body").animate({ scrollTop: $(window).height() - 49 }, 1500);
+  var scrollDown = function (elem) {
+    var scrollTo = elem ? $(elem).offset().top : $(window).height() - 49;
+    console.log(elem, scrollTo);
+    $("html, body").animate({ scrollTop: scrollTo}, 1500);
   }
 
 
@@ -63,12 +65,11 @@ $(function(){
     toggleMenu();
   });
 
-  // $(".icon-links .link-icon").hover(function(){
-  //   console.log(this);
-  //   $(this).css("color", "#000");
-  //   $(this).animate({color: "#FFF"}, 100, function(){return false});
-  // });
-
+  $(document).on("click", ".send-email", function(e){
+    console.log("trigger");
+    e.preventDefault();
+    scrollDown("#contact-form");
+  });
 
   //////Crawl for webpage links and grab the screenshot
   var linkImages = $(".dataURL");

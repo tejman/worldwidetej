@@ -14,7 +14,7 @@ page.open(system.args[1], function(status){
       console.log(dataURL);
       phantom.exit();
     }, 2000);
-    
+
   };
   
 
