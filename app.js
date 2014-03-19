@@ -44,6 +44,7 @@ app.use(stylus.middleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 if (global.process.env.MONGOHQ_URL) {
+  console.log(global.process.env.MONGOHQ_URL);
   mongoose.connect(global.process.env.MONGOHQ_URL);
 } else {
   mongoose.connect('mongodb://localhost/wwt');
