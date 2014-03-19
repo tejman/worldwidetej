@@ -5,7 +5,7 @@ formatEmail = (formData)->
   email = {}
   email.to = "rudrarajut@gmail.com"
   email.from = formData["from"] 
-  formWho = if isArray(formData.who) then formData.who.join("-") else formData.who
+  formWho = if Array.isArray(formData.who) then formData.who.join("-") else formData.who
   email.subject = formWho+":  "+formData.subject
   email.text = formData.text + "\n \n" + "NAME OF SENDER: " + formData.name
   return email

@@ -9,7 +9,7 @@
     email = {};
     email.to = "rudrarajut@gmail.com";
     email.from = formData["from"];
-    formWho = isArray(formData.who) ? formData.who.join("-") : formData.who;
+    formWho = Array.isArray(formData.who) ? formData.who.join("-") : formData.who;
     email.subject = formWho + ":  " + formData.subject;
     email.text = formData.text + "\n \n" + "NAME OF SENDER: " + formData.name;
     return email;
