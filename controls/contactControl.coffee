@@ -20,5 +20,5 @@ module.exports = {
         console.error(err)
       console.log("sendgrid result: ",json)
       
-    res.send "success"
+    res.redirect("/")
 };

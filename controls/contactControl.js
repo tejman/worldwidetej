@@ -26,7 +26,7 @@
         }
         return console.log("sendgrid result: ", json);
       });
-      return res.send("success");
+      return res.redirect("/");
     }
   };
 
