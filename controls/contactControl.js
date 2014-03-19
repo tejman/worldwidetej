@@ -5,12 +5,12 @@
   sendgrid = (require("sendgrid"))(global.process.env.SENDGRID_USERNAME, global.process.env.SENDGRID_PASSWORD);
 
   formatEmail = function(formData) {
-    var email;
+    var email, formWho;
     email = {};
     email.to = "rudrarajut@gmail.com";
     email.from = formData["from"];
-    console.log(formData.who);
-    email.subject = formData.who.join("-") + ":  " + formData.subject;
+    formWho = isArray(formData.who) ? formData.who.join("-") : formData.who;
+    email.subject = formWho + ":  " + formData.subject;
     email.text = formData.text + "\n \n" + "NAME OF SENDER: " + formData.name;
     return email;
   };
