@@ -1,8 +1,16 @@
 
-.row#contact-form
-  span.section-label Contact
+.row.home-section#contact-form
+  span.section-label : Get In Touch :
 
-  h2 Send me a message!
+  p.contact-intro.center-content
+    | Need development help?  
+    br
+    | Want to help me with design? 
+    br
+    | Just want to send me a message? 
+    br
+    | Whatever...
+
   .small-10.columns.small-centered
     form(data-abide, action="/contactForm/submit")
       .row
@@ -21,12 +29,15 @@
           textarea(type="text", name="text", placeholder="Say what you have to say...", required)
           small.error I appreciate brevity but you have to write something
       .row
-        .small-8.columns.small-centered
+        .small-9.columns.small-centered
           fieldset.center-content
             legend Who are you?
             
             input#developer(type="checkbox", name="who", value="DEV")
             label(for="developer") Developer
+
+            input#designer(type="checkbox", name="who", value="DES")
+            label(for="developer") Designer
 
             input#employer(type="checkbox", name="who", value="EMP")
             label(for="employer") Employer
@@ -38,4 +49,4 @@
             label(for="friend") Friend/Admirer
       .row
         .small-3.columns.small-offset-8.center-content
-          input.button.radius.success.small(type="submit")
+          input.button.radius.small(type="submit")

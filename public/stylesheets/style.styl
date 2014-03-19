@@ -4,13 +4,34 @@
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
   box-sizing border-box
+  font-family 'Gafata', sans-serif
 
 .row
   max-width 100%
 
+.home-section
+  position relative
+  padding 100px 40px
+
+body
+  .home-section:nth-child(odd)
+    background-image url("/images/stressed_linen.png")
+    color #FFF
+  .home-section:nth-child(even)
+    background-image url("/images/low_contrast_linen.png")
+    color #FFF
+.section-label
+  transform rotate(-90deg)
+  position absolute
+  top 30%
+  left -40px
+  transform-origin 0px 0px
+  text-transform uppercase
+  color #BF3030
+  font-weight bold
+
 .jumbotron
   padding 30px
-  // margin-bottom 50px
   color inherit
   background-color #ccc
   z-index -1
@@ -36,7 +57,7 @@
   li:hover
     a
       opacity 1
-      color #FFF
+      color #A60000
       transform rotateY(360deg)
     .link-icon
       background-color rgba(0,0,0,.1)
@@ -64,7 +85,7 @@
     font-size 63px
 
 .link-icon
-  font-size 16px
+  font-size 20px
 
 
 .center-content
@@ -74,6 +95,11 @@ blockquote.main-quote
   border none
   font-family 'Permanent Marker', cursive
 
+blockquote.main-quote:hover
+  p, cite
+    color #A60000
+    opacity 1
+
 .icon-links 
   li
     float none
@@ -81,17 +107,66 @@ blockquote.main-quote
 
 .top-bar
   overflow hidden
-  height 50px
-  border-bottom 7px solid #606060
+  height 63px
   z-index 999
+  background #191414
+  background linear-gradient(to bottom, #191414 81%,#a60000 100%)
+  opacity .95
 
-.thumbnail
-  h3
-    padding-top 15px
+.top-bar
+  ul, ul>li, ul>li>a, h1
+   background none !important
+   line-height 58px !important
+   font-family 'Gafata', sans-serif
+
+
+.pricing-table
+  opacity .7
+  border none
+  height 100%
+  .title
+    width 200px
+    margin auto
+    font-variant small-caps
+    font-size 20px
+    font-family 'Gafata', sans-serif
+  .description
+    border-top dotted 1px #ddd
+    color #FFF
+    font-size 14px
+  .price, .description, .cta-button, .title
+    background none
+
+.pricing-table:hover
+  opacity 1
+
+.flip-current
+  .pricing-table
+    opacity 1
+  position relative
+  box-shadow 0 1px 4px rgba(166, 0, 0, 0.3), 0 0 40px rgba(166, 0, 0, 0.1) inset
+  padding 15px
+
+.flip-current:before, .flip-current:after
+  content ""
+  position absolute
+  z-index -1
+  box-shadow 0 0 20px rgba(166,0,0,0.8)
+  top 0
+  bottom 0
+  left 10px
+  right 10px
+  border-radius 100px / 10px
+
+.flip-current:after
+  right 10px
+  left auto
+  transform skew(8deg) rotate(3deg)
 
 .th
-  width 150px
-  height 150px
+  width 300px
+  height 250px
+  max-height 250px
   overflow hidden
   background-color #FFF
 
@@ -110,20 +185,31 @@ blockquote.main-quote
   margin 0 auto
 
 #jumbotron-scroll:hover
-  background-color #FFF
-  color rgba(0,0,0,.7)
+  background-color #A60000
+  color #777
+  border-color #A60000
 
-#contact-form textarea
-  height 8em
+#contact-form 
+  textarea
+    height 8em
+  .button
+    background-color #A60000
+    // color #FFF
+    font-weight bond
+  fieldset
+    color #FFF
+    border-color #FFF
+    legend
+      color #FFF
+      background none
+    label
+      color #FFF
 
-#contact-form
-  background-color #bbb
+.contact-intro
+  font-size 28px
+  margin-bottom 60px
+  color #FFF
+  font-weight bold
 
-#check-out
-  background-color #F00
 
-fieldset legend
-  background none
-
-.section-label
 

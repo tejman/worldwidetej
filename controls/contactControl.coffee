@@ -1,4 +1,4 @@
-sendgrid = (require "sendgrid") process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD 
+sendgrid = (require "sendgrid") global.env.SENDGRID_USERNAME, global.env.SENDGRID_PASSWORD 
 
 
 formatEmail = (formData)->

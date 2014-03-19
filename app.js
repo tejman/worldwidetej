@@ -42,13 +42,19 @@ app.use(stylus.middleware({
   compile: compile
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-mongoose.connect("mongodb://localhost/wwt");
+
+if (global.process.env.MONGOHQ_URL) {
+  mongoose.connect(global.process.env.MONGOHQ_URL);
+} else {
+  mongoose.connect('mongodb://localhost/wwt');
+}
 
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
 
 app.get("/", frontControl.landing);
 app.get("/loadImages", phantomControl.getDataUrl)

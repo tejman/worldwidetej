@@ -8,6 +8,7 @@ $(function(){
     var docViewBottom = docViewTop + $(window).height();
 
     var elemTop = $(elem).offset().top;
+    console.log($(elem).offset().top)
     var elemBottom = elemTop + $(elem).height();
 
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
@@ -21,26 +22,26 @@ $(function(){
       paddingTop: "20%",
       marginTop: (-$(".top-bar").outerHeight())+"px"
     });
+    setJumbotronScroll();
+  }
+
+  var setJumbotronScroll = function(){
     $("#jumbotron-scroll").css({
       right: (($(window).width()/2)-(parseInt($("#jumbotron-scroll").css("width"))/2)).toString()+"px"
     });
   }
 
   var toggleMenu = function() {
-    if ($(window).scrollTop() > $(window).height() - 50) {
-      console.log("navbar trigger");
+    if ($(window).scrollTop() > $(window).height() - 63) {
       $(".top-bar").slideDown("slow");
-      // $(".jumbotron").hide();
     }
     else {
       $(".top-bar").hide();
-      // $(".jumbotron").show();
     }
   }
 
   var scrollDown = function (elem) {
-    var scrollTo = elem ? $(elem).offset().top : $(window).height() - 49;
-    console.log(elem, scrollTo);
+    var scrollTo = elem ? $(elem).offset().top : $(window).height() - 61;
     $("html, body").animate({ scrollTop: scrollTo}, 1500);
   }
 
@@ -51,13 +52,26 @@ $(function(){
 
 /////MAIN CODE
 
+  var sectionLabels = $(".section-label");
+
   $(document).foundation();
+  $(function(){ $(".flipster").flipster(); });
+
+  $(document).on("click", ".toggle-topbar", function(e){
+    e.preventDefault();
+  });
 
   $(".jumbotron").backstretch("/images/mountain.jpg");
   setJumbotron(".jumbotron");
 
   $(document).on("scroll", function(e){
     toggleMenu();
+    for (var i = sectionLabels.length - 1; i >= 0; i--) {
+      if(isScrolledIntoView($(sectionLabels[i]))){
+        console.log("true");
+        $(sectionLabels[i]).animate({left: "5px"}, 500);
+      }
+    };
   });
 
   $(document).on("click", "#jumbotron-scroll", function(){
@@ -66,17 +80,18 @@ $(function(){
   });
 
   $(document).on("click", ".send-email", function(e){
-    console.log("trigger");
     e.preventDefault();
     scrollDown("#contact-form");
+  });
+
+  $(window).on("resize", function(){
+    setJumbotronScroll();
   });
 
   //////Crawl for webpage links and grab the screenshot
   var linkImages = $(".dataURL");
 
   var linkUrls = linkImages.map(function(ind, item){
-    console.log(ind, item);
-    console.log($(item).closest("a").attr("href"));
     return $(item).closest("a").attr("href");
   });
 

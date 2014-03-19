@@ -1,28 +1,25 @@
+#check-out.row.home-section
+  span.section-label : Check Out :
 
-#check-out.row
-  h1 Check Out
-  .medium-4.columns
-    div.thumbnail.text-center
-      a(href="http://atom.io/").th: img.dataURL(src="http://placehold.it/150x150")
-      div.caption
-        h3 Atom Editor
-        p GitHub just released a new text editor. <br> I haven't had a chance to try to the Beta but its supposedly its very Node friendly!
-        p
-          a.button.tiny(href="http://atom.io/", role="button") View Page
-  .medium-4.columns
-    div.thumbnail.text-center
-      a(href="http://www.refactoru.com/").th: img.dataURL(src="http://placehold.it/150x150")
-      div.caption
-        h3 refactoru
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, accusamus!
-        p
-          a.button.tiny(href="http://www.refactoru.com", role="button") View Page
-  .medium-4.columns
-    div.thumbnail.text-center
-      a(href="http://www.github.com/").th: img.dataURL(src="http://placehold.it/150x150")
-        
-      div.caption
-        h3 GitHub
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, accusamus!
-        p
-          a.button.tiny(href="http://www.github.com", role="button") View Page
+  .flipster
+    .items-container
+      .items-selector
+        ul.pricing-table
+          li.title Atom Editor
+          li.price
+            a(href="http://atom.io/").th: img.dataURL(src="http://placehold.it/150x150")
+          li.description GitHub just released a new text editor. <br> I haven't had a chance to try to the Beta but its supposedly its very Node friendly!
+
+      .items-selector
+        ul.pricing-table
+          li.title refactorU
+          li.price
+            a(href="http://www.refactoru.com/").th: img.dataURL(src="http://placehold.it/150x150")
+          li.description I can't say enough about how great the RefactorU experience has been! If you are interested in learning the tools of the web development trade these guys should be an option. Send me a message if you have any questions!
+
+      .items-selector
+        ul.pricing-table
+          li.title GitHub
+          li.price
+            a(href="http://www.github.com/").th: img.dataURL(src="http://placehold.it/150x150")
+          li.description GitHub is much more than just back ups for your code. If you aren't familiar - get familiar
