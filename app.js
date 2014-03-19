@@ -44,7 +44,7 @@ app.use(stylus.middleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 if (global.process.env.MONGOHQ_URL) {
-  mongoose.connect(global.process.env.MONGOHQ_URL);
+  mongoose.connect("mongodb://heroku:ihcuwnpfh88@oceanic.mongohq.com:10056/app22573750");
 } else {
   mongoose.connect('mongodb://localhost/wwt');
 }
